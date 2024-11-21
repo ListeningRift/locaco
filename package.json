@@ -1,0 +1,61 @@
+{
+  "name": "locaco",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Download and diff the component library from github to local",
+  "author": "ListeningRift",
+  "license": "MIT",
+  "keywords": [
+    "component library",
+    "local component library",
+    "cli",
+    "github",
+    "shadcn-ui",
+    "diff"
+  ],
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "simple-git-hooks",
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "lint-staged": "pnpm fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest test",
+    "coverage": "vitest run --coverage",
+    "build": "unbuild",
+    "release": "bumpp --commit \"release: release v%s\" --push --tag",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "diff": "^7.0.0",
+    "glob-to-regexp": "^0.4.1",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.8.0",
+    "@types/diff": "^6.0.0",
+    "@types/glob-to-regexp": "^0.4.4",
+    "@types/node": "^22.9.0",
+    "@vitest/coverage-v8": "2.1.4",
+    "bumpp": "^9.8.1",
+    "eslint": "^9.14.0",
+    "lint-staged": "^15.2.10",
+    "memfs": "^4.14.0",
+    "pnpm": "^9.12.3",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.6.3",
+    "unbuild": "^2.0.0",
+    "vitest": "^2.1.4"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}

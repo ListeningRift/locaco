@@ -1,7 +1,7 @@
 {
   "name": "locaco",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Download and diff the component library from github to local",
   "author": "ListeningRift",
   "license": "MIT",
